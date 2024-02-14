@@ -2,10 +2,7 @@ from django.contrib.auth.base_user import BaseUserManager
 from .helpers import send_otp_phone
 class UserManager(BaseUserManager):
     use_in_migrations = True
-
-
-
-
+    
     def create_superuser(self,phone,password=None,**kwargs):
         kwargs.setdefault('is_active',True)
         kwargs.setdefault('is_staff',True)
@@ -14,10 +11,8 @@ class UserManager(BaseUserManager):
             return ValueError("Phone number is required")
         
         verificationDone = False
-
         while True:
             getOTP = send_otp_phone(phone)
-
             entered_opt = input("Enter OTP:")
             if str(getOTP) == str(entered_opt):
                 verificationDone = True
