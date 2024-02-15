@@ -10,4 +10,5 @@ urlpatterns = [
     path('userLogin/',views.userLogin,name="userLogin"),
     path('userLogout/',views.userLogout,name="userLogout"),
     path('updateProfile/',views.updateProfile,name="updateProfile"),
+    path('currentUserJWT/',views.currentUserJWT,name="currentUserJWT"),
 ]
